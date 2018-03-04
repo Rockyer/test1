@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{margin:0; padding:0;}
+#big{width:100%; height:425px; position:relative;}
+#dv1{width:100%; height:425px; max-width:1920px; background:url(轮播图/1.jpg) center; margin:0 auto;}
+#dv2{width:100%; height:425px; max-width:1920px; background:url(轮播图/2.jpg) center; margin:0 auto;}
+#dv3{width:100%; height:425px; max-width:1920px; background:url(轮播图/3.jpg) center; margin:0 auto;}
+#dv4{width:100%; height:425px; max-width:1920px; background:url(轮播图/4.jpg) center; margin:0 auto;}
+#dv5{width:100%; height:425px; max-width:1920px; background:url(轮播图/5.jpg) center; margin:0 auto;}
+#dv6{width:100%; height:425px; max-width:1920px; background:url(轮播图/6.png) center; margin:0 auto;}
+#dian{list-style:none;
+	  width:140px; 
+	  height:20px; 
+	  background:#E5E5E5;
+	  border-radius:50px;
+	  position:absolute;
+	  bottom:10px;
+	  left:450px;}
+#dian li{float:left;
+		 width:12px;
+		 height:12px;
+		 background:#E5E5E5;
+		 border:2px solid white;
+		 border-radius:50px;
+		 margin:2px 3px;
+		 cursor:pointer;}	 
+</style>
+<script type="text/javascript">
+	var nextPic=2;
+	var timer;
+	function lunbo(curr){
+		if(!isNaN(curr)){
+			nextPic=curr;
+			}
+		for(var i=1;i<7;i++){
+			if(i==nextPic){
+				document.getElementById("dv"+i).style.display="block";
+				document.getElementById("li"+i).style.background="white";
+				}else{
+					document.getElementById("dv"+i).style.display="none";
+					document.getElementById("li"+i).style.background="#E5E5E5";
+					}
+			}
+			nextPic++;
+			if(nextPic>6){
+				nextPic=1;
+				}
+		}
+	function stopLunbo(){
+		clearInterval(timer);
+		}
+	function startLunbo(){
+		timer=setInterval("lunbo()",2000);
+		}
+		timer=setInterval("lunbo()",2000);
+</script>
+</head>
+
+<body>
+	<div id="big" onmouseover="stopLunbo()" onmouseout="startLunbo()">
+    	<div id="dv1" style="display:block;"></div>
+        <div id="dv2" style="display:none;"></div>
+        <div id="dv3" style="display:none;"></div>
+        <div id="dv4" style="display:none;"></div>
+        <div id="dv5" style="display:none;"></div>
+        <div id="dv6" style="display:none;"></div>
+        <ul id="dian">
+        	<li id="li1" style="margin-left:5px; background:white;" onclick="lunbo(1)"></li>
+            <li id="li2" onclick="lunbo(2)"></li>
+            <li id="li3" onclick="lunbo(3)"></li>
+            <li id="li4" onclick="lunbo(4)"></li>
+            <li id="li5" onclick="lunbo(5)"></li>
+            <li id="li6" onclick="lunbo(6)"></li>
+        </ul>
+    </div>
+</body>
+</html>

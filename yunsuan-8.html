@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+  /*  var num1=parseInt(prompt("第一个数"));
+    var num2=parseInt(prompt("运算符"));
+    var num3=parseInt(prompt("第二个数"));
+	var sum;
+   function math(){
+	  if(num2="+"){
+		 sum=num1+num3;
+     if(num2="-"){
+		 sum=num1-num3;
+	  if(num2="*"){
+		 sum=num1*num3;
+	 if(num2="/"){
+		 sum=num1/num3;
+	     }
+         }
+		  }
+	     }
+	   }
+    math();
+	alert(sum);*/
+  
+   function cal(m,n,fu){
+	   var result=0;
+	   switch(fu){
+		   case '+':
+		   result=m+n;
+		   break;
+		    case '-':
+		   result=m-n;
+		   break;
+		    case '*':
+		   result=m*n;
+		   break;
+		    case '/':
+			if(n!=0){
+		   result=m/n;}else{
+			   alert("被除数不能为零");}
+			 break;
+		    case '%':
+		   result=m%n;
+		   break;
+		  default:
+		  alert("运算符错误");
+		   }
+		  return result;
+	   }
+	var num1=parseInt(prompt("第一个数"));
+    var fu=prompt("运算符");
+    var num3=parseInt(prompt("第二个数")); 
+	alert(cal(num1,num3,fu));
+</script>
+</head>
+
+<body>
+</body>
+</html>

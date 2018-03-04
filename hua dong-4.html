@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+.dv1{width:600px; height:400px; background:red; float:left}
+.dv2{width:600px; height:400px; background:green; float:left}
+.dv3{width:600px; height:400px; background:pink; float:left}
+#con{ width:3000px; height:400px;}
+#main{ width:600px; height:400px; overflow:hidden;}
+#left{width:26px; height:74px; background:url(arr.png); position:absolute; top:150px; cursor:pointer;}
+#right{width:26px; height:74px; background:url(arr.png); background-position:-26px 0; position:absolute; top:150px; right:0px; cursor:pointer; }
+#big{ position:relative; width:600px; height:400px;}
+</style>
+<script type="text/javascript">
+  var timer;
+  window.onload=function(){
+	  var main=document.getElementById("main");
+	  main.scrollLeft=600;
+	  }
+  function changePos(id,val){
+	  var dv=document.getElementById(id);
+	  if(id=="left"){
+		  if(val==0){
+			  dv.style.backgroundPosition="0 -74px";
+			  }else{
+				  dv.style.backgroundPosition="0 0";
+				  }
+		  }
+	if(id=="right"){
+		  if(val==0){
+			  dv.style.backgroundPosition="-26px -74px";
+			  }else{
+				  dv.style.backgroundPosition="-26px 0";
+				  }
+		  }
+	  }
+	function huadong(){
+		var main=document.getElementById("main");
+		main.scrollLeft+=6;
+		if(main.scrollLeft==2400){
+			main.scrollLeft=600;
+			}
+		if(main.scrollLeft%600==0){	
+		clearInterval(timer);
+		timer=setTimeout("startHua()",2000);
+		} 
+	}
+    function startHua(){
+	timer=setInterval("huadong()",1);
+	}
+	function startMove(val){
+		var main=document.getElementById("main");
+	    if(val==0){
+		main.scrollLeft+=60;
+			if(main.scrollLeft==2400){
+				main.scrollLeft=600;
+				}
+			if(main.scrollLeft%600==0){
+				clearInterval(timer);
+				timer=setTimeout("startHua()",5000)
+				}
+			}
+		if(val==1){
+			main.scrollLeft-=60;
+			if(main.scrollLeft==0){
+				main.scrollLeft=1800;
+				}
+			
+			if(main.scrollLeft%600==0){
+				clearInterval(timer);
+				timer=setTimeout("startHua()",5000)
+				}
+		   }
+		}
+	function rightMove(){
+		clearInterval(timer);
+		timer=setInterval("startMove(0)",1)
+		}
+	function leftMove(){
+		clearInterval(timer);
+		timer=setInterval("startMove(1)",1)
+		}
+	timer=setTimeout("startHua()",2000);
+</script>
+</head>
+
+<body>
+<div id="big">
+    <div id="main">
+       <div id="con">
+          <div class="dv3"></div>
+          <div class="dv1"></div>
+          <div class="dv2"></div>
+          <div class="dv3"></div>
+          <div class="dv1"></div>
+       </div>
+    </div>
+    <div id="left" onmouseover="changePos(this.id,0)" onmouseout="changePos(this.id,1)" onclick="leftMove()"></div>
+    <div id="right" onmouseover="changePos(this.id,0)" onmouseout="changePos(this.id,1)" onclick="rightMove()"></div>
+</div>
+</body>
+</html>

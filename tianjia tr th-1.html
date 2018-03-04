@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+   function $(id){
+	   return document.getElementById(id);
+	   }
+	   var count=1;
+   function shopping(){
+	   var name=$("name").value;
+	   var des=$("description").value;
+	   var price=$("price").value;
+	   var num=$("num").value; 
+	   var tab=$("tab");
+	   //添加行
+	   var tr=tab.insertRow(count);
+	   //添加列
+	   var td1=tr.insertCell(0);
+	   td1.innerHTML=name;
+	   var td2=tr.insertCell(1);
+	   td2.innerHTML=des;
+	   var td3=tr.insertCell(2);
+	   td3.innerHTML=price;
+	   var td4=tr.insertCell(3);
+	   td4.innerHTML=num;
+	   var td5=tr.insertCell(4);
+	   td5.innerHTML="<a href='javascript:void(0)' onclick='deleteHang(this.parentNode.parentNode.rowIndex)'>删除</a>";
+	   count++;
+	   }
+	 function deleteHang(index){
+		 var tab=$("tab");
+		 tab.deleteRow(index);
+		 count--;
+		 }
+
+</script>
+</head>
+
+<body>
+    <p>商品名称：<input type="text"  id="name"/>
+       商品名称：<input type="text"  id="description" />
+       商品名称：<input type="text"  id="price" />
+       商品名称：<input type="text"  id="num"  />
+       <input type="button" value="确定"  onclick="shopping()" />
+    </p>
+    <table width="600" cellspacing="0" cellpadding="0" id="tab" border="1px" align="center" >
+       <tr>
+       <th>商品名称</th>
+       <th>商品描述</th>
+       <th>商品名称</th>
+       <th>商品名</th>
+       <th>删除</th>
+       </tr>
+    </table>
+</body>
+</html>
